@@ -23,7 +23,7 @@ def main():
                         w.add(item)
                         s.add(item)
                         error = (w.count() - len(s)) / len(s)
-                        f.write('{} {} {:.6f}\n'.format(w_name, n+1, error))
+                        f.write('{} {} {:.3f}\n'.format(w_name, n+1, error))
                     f.flush()
                 iterations += 1
                 print(iterations, flush=True)

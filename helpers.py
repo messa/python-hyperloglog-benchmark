@@ -116,8 +116,8 @@ Wrappers = [
     lambda: HLLPPWrapper(precision=13),
     lambda: HLLPPWrapper(precision=14),
     lambda: HLLPPWrapper(precision=15),
-    lambda: HLLPPWrapper(precision=18),
     lambda: HLLPPWrapper(precision=17),
+    lambda: HLLPPWrapper(precision=18),
 ]
 
 

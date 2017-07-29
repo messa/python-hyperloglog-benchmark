@@ -41,7 +41,7 @@ def main():
                                 w.merge(w2)
 
                                 error = (w.count() - len(real_set)) / len(real_set)
-                                f.write('{} {} {:.6f}\n'.format(w_name, merge_count, error))
+                                f.write('{} {} {:.3f}\n'.format(w_name, merge_count, error))
 
                             f.flush()
 

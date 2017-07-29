@@ -18,7 +18,7 @@ def test_wrapper(W):
     from zlib import decompress
     print('{}k additions took {:.3f} s;'.format(add_count // 1000, t1-t0), end=' ')
     print('difference: {:5}'.format(x.count() - add_count), end=' ')
-    print('serialized: {:5} B compressed, {:6} B uncompressed'.format(len(xs), len(decompress(xs))))
+    print('serialized: {:6} B compressed, {:6} B uncompressed'.format(len(xs), len(decompress(xs))))
 
 
 def main():
