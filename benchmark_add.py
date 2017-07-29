@@ -7,7 +7,7 @@ from helpers import Wrappers, generate_item
 
 
 def main():
-    item_count = 50000
+    item_count = 100000
     name = 'data/add.{pid}.txt.gz'.format(pid=getpid())
     with gzip.open(name, 'at') as f:
         iterations = 0
@@ -22,8 +22,9 @@ def main():
                     for n, item in enumerate(add_items):
                         w.add(item)
                         s.add(item)
-                        error = (w.count() - len(s)) / len(s)
-                        f.write('{} {} {:.3f}\n'.format(w_name, n+1, error))
+                        if n % 10 == 0:
+                            error = (w.count() - len(s)) / len(s)
+                            f.write('{} {} {:.3f}\n'.format(w_name, n+1, error))
                     f.flush()
                 iterations += 1
                 print(iterations, flush=True)
