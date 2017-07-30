@@ -1,13 +1,13 @@
-- hyperloglog:0.01   500k additions took 5.038 s; difference:  4982 serialized:   9625 B compressed,  32899 B uncompressed
-- HLL:10             500k additions took 0.650 s; difference: 24340 serialized:    553 B compressed,   1065 B uncompressed
-- HLL:11             500k additions took 0.670 s; difference: 12037 serialized:   1018 B compressed,   2089 B uncompressed
-- HLL:13             500k additions took 0.710 s; difference:  3037 serialized:   3841 B compressed,   8233 B uncompressed
-- HLL:14             500k additions took 0.681 s; difference:  1838 serialized:   7616 B compressed,  16425 B uncompressed
-- HLL:15             500k additions took 0.680 s; difference:  -341 serialized:  15113 B compressed,  32809 B uncompressed
-- hllpp:10           500k additions took 0.785 s; difference: -4120 serialized:    592 B compressed,    776 B uncompressed
-- hllpp:11           500k additions took 0.781 s; difference: -10477 serialized:   1124 B compressed,   1544 B uncompressed
-- hllpp:13           500k additions took 0.776 s; difference: -1085 serialized:   4221 B compressed,   6152 B uncompressed
-- hllpp:14           500k additions took 0.784 s; difference:  2780 serialized:   8251 B compressed,  12296 B uncompressed
-- hllpp:15           500k additions took 0.705 s; difference:  1658 serialized:  16367 B compressed,  24584 B uncompressed
-- hllpp:17           500k additions took 0.749 s; difference:  2270 serialized:  63663 B compressed,  98312 B uncompressed
-- hllpp:18           500k additions took 0.712 s; difference:  2330 serialized: 123143 B compressed, 196616 B uncompressed
+- hyperloglog:0.01   1000k additions took 6.019 s; difference:   -364 (0.04 %) serialized:   9645 B compressed,  32899 B uncompressed
+- HLL:10             1000k additions took 0.706 s; difference:  29922 (2.99 %) serialized:    555 B compressed,   1065 B uncompressed
+- HLL:11             1000k additions took 0.685 s; difference:  35970 (3.60 %) serialized:   1024 B compressed,   2089 B uncompressed
+- HLL:13             1000k additions took 0.771 s; difference:   8824 (0.88 %) serialized:   3857 B compressed,   8233 B uncompressed
+- HLL:14             1000k additions took 0.787 s; difference:  10790 (1.08 %) serialized:   7575 B compressed,  16425 B uncompressed
+- HLL:15             1000k additions took 0.723 s; difference:   2353 (0.24 %) serialized:  15070 B compressed,  32809 B uncompressed
+- hllpp:10           1000k additions took 0.814 s; difference:   7135 (0.71 %) serialized:    598 B compressed,    776 B uncompressed
+- hllpp:11           1000k additions took 0.802 s; difference: -13170 (1.32 %) serialized:   1112 B compressed,   1544 B uncompressed
+- hllpp:13           1000k additions took 0.777 s; difference:  11142 (1.11 %) serialized:   4225 B compressed,   6152 B uncompressed
+- hllpp:14           1000k additions took 0.850 s; difference:  11481 (1.15 %) serialized:   8282 B compressed,  12296 B uncompressed
+- hllpp:15           1000k additions took 0.744 s; difference:   9704 (0.97 %) serialized:  16346 B compressed,  24584 B uncompressed
+- hllpp:17           1000k additions took 0.768 s; difference:   8122 (0.81 %) serialized:  64109 B compressed,  98312 B uncompressed
+- hllpp:18           1000k additions took 0.721 s; difference:  10832 (1.08 %) serialized: 126981 B compressed, 196616 B uncompressed
