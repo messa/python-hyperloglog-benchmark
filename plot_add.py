@@ -2,7 +2,7 @@
 
 import argparse
 from collections import defaultdict, Counter
-from math import log, log2, sqrt
+from math import log, log2
 import sys
 
 import matplotlib
@@ -27,17 +27,16 @@ def main():
         for occurrence_count, item_count, error in points:
             x.append(item_count)
             y.append(error)
-            s.append(sqrt(occurrence_count))
+            s.append(occurrence_count ** (1/3))
             c.append(int(log2(occurrence_count)))
 
-        plt.rcParams["figure.figsize"] = [18, 10]
+        plt.rcParams["figure.figsize"] = [16, 8]
         plt.clf()
-        plt.rcParams["figure.figsize"] = [18, 10]
+        plt.axhline(0, color='k', alpha=.2)
+        plt.axhline(0.01, alpha=.2)
+        plt.axhline(-0.01, alpha=.2)
         plt.scatter(x, y, s=s, c=c)
         plt.savefig('add.{}.png'.format(algo_name))
-
-
-
 
 
 def load(debug):
@@ -49,16 +48,17 @@ def load(debug):
         if n % 1000000 == 0 and n > 0:
             print('Loaded {:3}M rows'.format(n // 1000000))
         occurrence_count, algorithm, item_count, error = line.split()
+
+        scaledown_x = 10 if algorithm.startswith('hyperloglog:') else 1000
+        scaledown_y = 300
+
         key = (
             (int(item_count) // 1000) * 1000,
-            round(float(error) * 250) / 250,
+            round(float(error) * scaledown_y) / scaledown_y,
         )
         data[algorithm][key] += int(occurrence_count)
 
     return data
-
-
-
 
 
 if __name__ == '__main__':
