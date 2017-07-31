@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+
+import argparse
+from collections import defaultdict, Counter
+from math import log, log2, sqrt
+import sys
+
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument('--debug', action='store_true')
+    args = p.parse_args()
+
+    data = load(args.debug)
+
+    for algo_name, algo_data in sorted(data.items()):
+        print('Graphing {}'.format(algo_name))
+
+        points = [(occurrence_count, item_count, error) for (item_count, error), occurrence_count in algo_data.items()]
+        points.sort(reverse=True)
+
+        x, y, s, c = [], [], [], []
+        for occurrence_count, item_count, error in points:
+            x.append(item_count)
+            y.append(error)
+            s.append(sqrt(occurrence_count))
+            c.append(int(log2(occurrence_count)))
+
+        plt.rcParams["figure.figsize"] = [18, 10]
+        plt.clf()
+        plt.rcParams["figure.figsize"] = [18, 10]
+        plt.scatter(x, y, s=s, c=c)
+        plt.savefig('add.{}.png'.format(algo_name))
+
+
+
+
+
+def load(debug):
+    # data: {algorithm: Counter({ (item_count, error): occurrence_count })  }
+    data = defaultdict(Counter)
+    for n, line in enumerate(sys.stdin):
+        if debug and n > 1000000:
+            break
+        if n % 1000000 == 0 and n > 0:
+            print('Loaded {:3}M rows'.format(n // 1000000))
+        occurrence_count, algorithm, item_count, error = line.split()
+        key = (
+            (int(item_count) // 1000) * 1000,
+            round(float(error) * 250) / 250,
+        )
+        data[algorithm][key] += int(occurrence_count)
+
+    return data
+
+
+
+
+
+if __name__ == '__main__':
+    main()
